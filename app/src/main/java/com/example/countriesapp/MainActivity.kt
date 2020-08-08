@@ -11,14 +11,4 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun btnToCountryFragmentClick (view: View?) {
-        val routingAction = FeedFragmentDirections.actionFeedFragmentToCountryFragment()
-        view?.findNavController()?.navigate(routingAction)
-    }
-
-    fun btnToFeedFragmentClick (view: View?) {
-        val routingAction = CountryFragmentDirections.actionCountryFragmentToFeedFragment()
-        view?.findNavController()?.navigate(routingAction)
-    }
-
 }

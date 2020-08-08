@@ -5,16 +5,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".CountryFragment">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="to feed fragment"
-            android:textAllCaps="false"
-            android:layout_gravity="center"
-            android:onClick="btnToFeedFragmentClick"
-            />
+        tools:context=".view.CountryFragment">
 
     </FrameLayout>
 </layout>
