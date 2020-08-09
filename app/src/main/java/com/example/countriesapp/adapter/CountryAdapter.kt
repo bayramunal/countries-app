@@ -25,7 +25,7 @@ class CountryAdapter(val countryList : ArrayList<Country>) : RecyclerView.Adapte
         holder.view.tvCountryRegion.text = countryList[position].countryRegion
     }
 
-    fun updateCountryList (newCountryList : ArrayList<Country>) {
+    fun updateCountryList (newCountryList : List<Country>) {
         countryList.clear()
         countryList.addAll(newCountryList)
         notifyDataSetChanged()
