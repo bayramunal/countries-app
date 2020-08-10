@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.countriesapp.model.Country
 import com.example.countriesapp.service.ApiClient
 import com.example.countriesapp.service.Database
+import com.example.countriesapp.util.SharedPref
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -19,8 +20,8 @@ class FeedFragmentViewModel(application : Application) : BaseViewModel(applicati
     val countryLoading = MutableLiveData<Boolean>()
 
     private val apiClient = ApiClient()
-    private val disposable =
-        CompositeDisposable() // after api calls, the calls will be destroyed (memory optimization)
+    private val disposable = CompositeDisposable() // after api calls, the calls will be destroyed (memory optimization)
+    private var customSharedPref = SharedPref(getApplication())
 
     fun refreshData() {
         getDataFromAPI()
@@ -68,6 +69,8 @@ class FeedFragmentViewModel(application : Application) : BaseViewModel(applicati
 
             showCountries(list)
         }
+
+        customSharedPref.lastDownloadCheckpoint(System.nanoTime())
     }
 
 }
