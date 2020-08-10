@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.countriesapp.R
+import com.example.countriesapp.util.getImageFromUrl
+import com.example.countriesapp.util.placeholderProgressBar
 import com.example.countriesapp.viewmodel.CountryFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_country.*
 import kotlinx.android.synthetic.main.item_country.*
@@ -34,14 +36,14 @@ class CountryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(CountryFragmentViewModel::class.java)
-        viewModel.getDataFromRoom()
-
         arguments?.let {
             countryUuid = CountryFragmentArgs.fromBundle(
                 it
             ).countryUuid
         }
+
+        viewModel = ViewModelProviders.of(this).get(CountryFragmentViewModel::class.java)
+        viewModel.getDataFromRoom(countryUuid)
 
         observeLiveData()
     }
@@ -54,6 +56,11 @@ class CountryFragment : Fragment() {
                 tvCFCountryCurrency.text = country.countryCurrency
                 tvCGCountryRegion.text = country.countryRegion
                 tvCGCountryLang.text = country.countryLanguage
+
+                context?.let {
+                    ivCFCountryImage.getImageFromUrl(country.countryFlagUrl, placeholderProgressBar(it))
+                }
+
             }
         })
     }

@@ -29,7 +29,7 @@ class CountryAdapter(val countryList : ArrayList<Country>) : RecyclerView.Adapte
         holder.view.tvCountryRegion.text = countryList[position].countryRegion
 
         holder.view.setOnClickListener {
-            val routingAction = FeedFragmentDirections.actionFeedFragmentToCountryFragment() // TODO : constructor will define later
+            val routingAction = FeedFragmentDirections.actionFeedFragmentToCountryFragment(countryList[position].uuid)
             it.findNavController().navigate(routingAction)
         }
 
