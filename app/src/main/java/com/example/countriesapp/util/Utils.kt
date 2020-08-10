@@ -4,20 +4,21 @@ import android.content.Context
 import android.widget.ImageView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.countriesapp.R
 
 fun ImageView.getImageFromUrl(url : String?, progressDrawable: CircularProgressDrawable) {
 
     println("incoming url : " + url)
 
-    val options = RequestOptions()
-        .placeholder(progressDrawable)
-        .error(R.mipmap.ic_launcher_round)
+//    val options = RequestOptions()
+//        .placeholder(progressDrawable)
+//        .error(R.mipmap.ic_launcher_round) // i search it this is not working // i didnt understand
 
     Glide.with(context)
-        .setDefaultRequestOptions(options)
+        //.setDefaultRequestOptions(options)
         .load(url)
+        .placeholder(R.mipmap.ic_launcher_round)
+        .error(R.mipmap.ic_launcher_round)
         .into(this)
 }
 
