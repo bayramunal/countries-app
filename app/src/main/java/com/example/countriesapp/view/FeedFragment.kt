@@ -51,7 +51,7 @@ class FeedFragment : Fragment() {
             tvCountryErrorMessage.visibility = View.GONE
             progressBar.visibility = View.VISIBLE
             feedRefresher.isRefreshing = false
-            viewModel.refreshData()
+            viewModel.refreshFromAPI()
         }
     }
 

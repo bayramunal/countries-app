@@ -34,4 +34,6 @@ class SharedPref {
         }
     }
 
+    fun getTime() = sharedPreferences?.getLong(PREF_TIME_CHECKPOINT, 0)
+
 }
