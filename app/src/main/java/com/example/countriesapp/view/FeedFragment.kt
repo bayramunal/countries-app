@@ -40,10 +40,22 @@ class FeedFragment : Fragment() {
         rvCountryList.layoutManager = LinearLayoutManager(context)
         rvCountryList.adapter = countryAdapter
 
+        refreshLayout()
+
         observeLiveData()
     }
 
-    fun observeLiveData() {
+    private fun refreshLayout() {
+        feedRefresher.setOnRefreshListener {
+            rvCountryList.visibility = View.GONE
+            tvCountryErrorMessage.visibility = View.GONE
+            progressBar.visibility = View.VISIBLE
+            feedRefresher.isRefreshing = false
+            viewModel.refreshData()
+        }
+    }
+
+    private fun observeLiveData() {
         viewModel.countries.observe(viewLifecycleOwner, Observer { countries ->
             countries?.let {
                 rvCountryList.visibility = View.VISIBLE

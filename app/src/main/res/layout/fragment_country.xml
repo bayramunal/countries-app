@@ -48,7 +48,7 @@
             />
 
         <TextView
-            android:id="@+id/tvCGCountryCapital"
+            android:id="@+id/tvCFCountryCapital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tvCGCountryRegion"
@@ -61,10 +61,10 @@
             />
 
         <TextView
-            android:id="@+id/tvCGCountryCurrency"
+            android:id="@+id/tvCFCountryCurrency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tvCGCountryCapital"
+            app:layout_constraintTop_toBottomOf="@id/tvCFCountryCapital"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="20dp"
@@ -77,7 +77,7 @@
             android:id="@+id/tvCGCountryLang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tvCGCountryCurrency"
+            app:layout_constraintTop_toBottomOf="@id/tvCFCountryCurrency"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="20dp"
