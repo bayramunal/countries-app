@@ -97,4 +97,9 @@ class FeedFragmentViewModel(application : Application) : BaseViewModel(applicati
         customSharedPref.lastDownloadCheckpoint(System.nanoTime())
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        disposable.clear()
+    }
+
 }
