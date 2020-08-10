@@ -7,6 +7,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.countriesapp.R
 import com.example.countriesapp.model.Country
+import com.example.countriesapp.util.getImageFromUrl
+import com.example.countriesapp.util.placeholderProgressBar
 import com.example.countriesapp.view.FeedFragmentDirections
 import kotlinx.android.synthetic.main.item_country.view.*
 
@@ -30,6 +32,8 @@ class CountryAdapter(val countryList : ArrayList<Country>) : RecyclerView.Adapte
             val routingAction = FeedFragmentDirections.actionFeedFragmentToCountryFragment() // TODO : constructor will define later
             it.findNavController().navigate(routingAction)
         }
+
+        holder.view.ivCountryImage.getImageFromUrl(countryList[position].countryFlagUrl, placeholderProgressBar(holder.view.context))
     }
 
     fun updateCountryList (newCountryList : List<Country>) {
